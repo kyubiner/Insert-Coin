@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xghwnr5jcwq8"]
+
+[ext_resource type="Script" uid="uid://c22yuutt4qqxl" path="res://Script/360_Core_Shield/bugs.gd" id="1_s4fmc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(28, 28)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=612708368]
+script = ExtResource("1_s4fmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=587155828]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1610684552]
+shape = SubResource("RectangleShape2D_htemk")

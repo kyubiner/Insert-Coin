@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bng6wweikfp5u"]
+
+[ext_resource type="Script" uid="uid://btwvuyilybxku" path="res://Script/Github_Breaker/main.gd" id="1_yh6br"]
+[ext_resource type="PackedScene" uid="uid://2fq3pvhuaswb" path="res://Scene/Github_Breaker/paddle.tscn" id="2_yh6br"]
+[ext_resource type="PackedScene" uid="uid://cfaaiar66a60k" path="res://Scene/Github_Breaker/ball.tscn" id="3_qp1tl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14cdr"]
+bg_color = Color(0.10099188, 0.12395043, 0.15838793, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp1tl"]
+size = Vector2(12.0625, 413.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(784, 10)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_htemk"]
+
+[node name="Node2D" type="Node2D" unique_id=1525695268]
+script = ExtResource("1_yh6br")
+
+[node name="Panel" type="Panel" parent="." unique_id=1512168385]
+offset_right = 768.0
+offset_bottom = 433.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_14cdr")
+
+[node name="Paddle" parent="." unique_id=1739950791 instance=ExtResource("2_yh6br")]
+position = Vector2(384, 368)
+
+[node name="Ball" parent="." unique_id=777012880 instance=ExtResource("3_qp1tl")]
+position = Vector2(382, 329)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1858321148]
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=97590461]
+position = Vector2(-4, 196)
+shape = SubResource("RectangleShape2D_qp1tl")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=2111775608]
+position = Vector2(772.969, 196)
+shape = SubResource("RectangleShape2D_qp1tl")
+
+[node name="Up" type="CollisionShape2D" parent="Walls" unique_id=2058355467]
+position = Vector2(384, -5)
+shape = SubResource("RectangleShape2D_htemk")
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=434391409]
+
+[node name="Collision2D" type="CollisionShape2D" parent="DeathZone" unique_id=7779642]
+position = Vector2(375, 467)
+shape = SubResource("WorldBoundaryShape2D_htemk")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=852018199]
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

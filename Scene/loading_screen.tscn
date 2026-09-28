@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b8hcdg73cx168"]
+
+[ext_resource type="Script" uid="uid://b4ksyy017ejor" path="res://Script/loading_screen.gd" id="1_2vpup"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14cdr"]
+bg_color = Color(0.6049387, 0.6080512, 0.28123334, 1)
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1251326361]
+script = ExtResource("1_2vpup")
+
+[node name="Fade" type="Node2D" parent="." unique_id=1269179112]
+position = Vector2(377, 219)
+
+[node name="Panel" type="Panel" parent="Fade" unique_id=1480494972]
+offset_left = -377.0
+offset_top = -219.0
+offset_right = 391.0
+offset_bottom = 213.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_14cdr")
+
+[node name="ProgressBar" type="ProgressBar" parent="Fade" unique_id=167970420]
+process_mode = 3
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = -161.5
+offset_top = -13.5
+offset_right = 161.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4

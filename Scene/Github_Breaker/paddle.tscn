@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://2fq3pvhuaswb"]
+
+[ext_resource type="Script" uid="uid://cev7p2ckq51mk" path="res://Script/Github_Breaker/paddle.gd" id="1_4doov"]
+[ext_resource type="Texture2D" uid="uid://bhjdxrlni6mfj" path="res://Asset/Github_Breaker/paddel.png" id="2_4doov"]
+
+[node name="Paddle" type="CharacterBody2D" unique_id=1739950791]
+scale = Vector2(2, 2)
+motion_mode = 1
+script = ExtResource("1_4doov")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816764353]
+scale = Vector2(2, 2)
+texture = ExtResource("2_4doov")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1429371896]
+polygon = PackedVector2Array(-32, -2, -32, 2, -6, 2, -6, 4, -4, 4, -4, 6, 4, 6, 4, 4, 6, 4, 6, 2, 32, 2, 32, -2, 6, -2, 6, -4, 4, -4, 4, -6, -4, -6, -4, -4, -6, -4, -6, -2)

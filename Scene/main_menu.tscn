@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cgtmm2epr6i2s"]
+
+[ext_resource type="Texture2D" uid="uid://dt11otdyt1wj1" path="res://Asset/360 Core Shield/logo.png" id="1_87ipw"]
+[ext_resource type="Script" uid="uid://ce1ckoy5rfvkg" path="res://Script/main_menu.gd" id="1_hii65"]
+[ext_resource type="Texture2D" uid="uid://cu4uny4qufnkc" path="res://Asset/Github_Breaker/logo.png" id="2_hii65"]
+
+[node name="Control" type="Control" unique_id=664825225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hii65")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1608914730]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 132.0
+offset_right = 908.0
+offset_bottom = 644.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("1_87ipw")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1717402666]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 132.0
+offset_right = 728.0
+offset_bottom = 644.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("2_hii65")
+
+[connection signal="pressed" from="TextureButton2" to="." method="_on_core_shield_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_github_breaker_pressed"]

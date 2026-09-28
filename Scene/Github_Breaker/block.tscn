@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddc5ecbho8gex"]
+
+[ext_resource type="Script" uid="uid://dmokl54ubix18" path="res://Script/Github_Breaker/block.gd" id="1_8asxo"]
+[ext_resource type="Texture2D" uid="uid://bsn84gsnjy8yv" path="res://Asset/Github_Breaker/block.png" id="2_8asxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8640"]
+size = Vector2(24, 24)
+
+[node name="Block" type="StaticBody2D" unique_id=1121487054]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_8asxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=431399277]
+texture = ExtResource("2_8asxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2002927814]
+shape = SubResource("RectangleShape2D_w8640")

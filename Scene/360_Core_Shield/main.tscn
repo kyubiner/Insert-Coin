@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b7m2t2me65by4"]
+
+[ext_resource type="Script" uid="uid://xi4ylgcsh34q" path="res://Script/360_Core_Shield/shield.gd" id="1_lwk7u"]
+[ext_resource type="Script" uid="uid://clj7v258tjj2h" path="res://Script/360_Core_Shield/spawner_bugs.gd" id="2_ayv08"]
+[ext_resource type="Texture2D" uid="uid://dw5vm2d1va30b" path="res://Asset/360 Core Shield/core_system.png" id="3_orkht"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htemk"]
+radius = 16.0
+
+[node name="Node2D" type="Node2D" unique_id=1628174435]
+
+[node name="PivotShield" type="Node2D" parent="." unique_id=1689858262]
+position = Vector2(384, 216)
+
+[node name="Shield" type="CharacterBody2D" parent="PivotShield" unique_id=1804305136]
+script = ExtResource("1_lwk7u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PivotShield/Shield" unique_id=635592129]
+z_index = 3
+
+[node name="Polygon2D" type="Line2D" parent="PivotShield/Shield" unique_id=1317724397]
+
+[node name="Timer" type="Timer" parent="." unique_id=743967262]
+wait_time = 3.0
+
+[node name="SpawnerBugs" type="Node2D" parent="." unique_id=59687972]
+script = ExtResource("2_ayv08")
+
+[node name="Core" type="StaticBody2D" parent="." unique_id=1161129910]
+position = Vector2(384, 216)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=327878518]
+texture = ExtResource("3_orkht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core" unique_id=1538098578]
+shape = SubResource("CircleShape2D_htemk")
+
+[connection signal="timeout" from="Timer" to="SpawnerBugs" method="_on_timer_timeout"]

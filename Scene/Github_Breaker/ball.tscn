@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfaaiar66a60k"]
+
+[ext_resource type="Script" uid="uid://chmm2qocou6js" path="res://Script/Github_Breaker/ball.gd" id="1_v35cy"]
+[ext_resource type="Texture2D" uid="uid://5vm240ew038u" path="res://Asset/Github_Breaker/ball.png" id="2_v35cy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v35cy"]
+radius = 12.0
+
+[node name="Ball" type="CharacterBody2D" unique_id=1739950791]
+script = ExtResource("1_v35cy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816764353]
+texture = ExtResource("2_v35cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1626626661]
+shape = SubResource("CircleShape2D_v35cy")
