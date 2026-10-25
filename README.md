@@ -1,8 +1,14 @@
-# Insert Coin
+<div align="center">
+<h1>
+Insert Coin
+</h1>
 
-This is a programming-themed game I created using Godot!
+_"a collection of arcade minigames that run on your desktop"_
+</div>
 
-It runs in the taskbar, so whenever you're bored, you can play it anytime, anywhere.
+[![Banner](Asset/Banner.png)](https://rubiriku-dev.itch.io/insert-coin)
 
-Access it here:
-https://drive.google.com/drive/folders/14mZBPSmJ7eGYQSYK2bIwrfAscWfY0NeD?usp=sharing
+## Feature
+- various minigames that can be played on desktop
+- features a hardware controller that adds to the excitement of playing (On-progress)
+- a cool desk companion (On-progress)
