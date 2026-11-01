@@ -1,18 +1,37 @@
 [gd_scene format=3 uid="uid://b7m2t2me65by4"]
 
+[ext_resource type="Texture2D" uid="uid://t0y6bmxpfost" path="res://Asset/360 Core Shield/background.png" id="1_kp4qo"]
 [ext_resource type="Script" uid="uid://xi4ylgcsh34q" path="res://Script/360_Core_Shield/shield.gd" id="1_lwk7u"]
 [ext_resource type="Script" uid="uid://clj7v258tjj2h" path="res://Script/360_Core_Shield/spawner_bugs.gd" id="2_ayv08"]
 [ext_resource type="Texture2D" uid="uid://dw5vm2d1va30b" path="res://Asset/360 Core Shield/core_system.png" id="3_orkht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4lci"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htemk"]
 radius = 16.0
 
 [node name="Node2D" type="Node2D" unique_id=1628174435]
 
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=567708683]
+clip_children = 1
+offset_right = 768.0
+offset_bottom = 432.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q4lci")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1088072868]
+layout_mode = 2
+texture = ExtResource("1_kp4qo")
+
 [node name="PivotShield" type="Node2D" parent="." unique_id=1689858262]
-position = Vector2(384, 216)
+position = Vector2(380, 220)
 
 [node name="Shield" type="CharacterBody2D" parent="PivotShield" unique_id=1804305136]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_lwk7u")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PivotShield/Shield" unique_id=635592129]
@@ -27,7 +46,7 @@ wait_time = 3.0
 script = ExtResource("2_ayv08")
 
 [node name="Core" type="StaticBody2D" parent="." unique_id=1161129910]
-position = Vector2(384, 216)
+position = Vector2(380, 220)
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=327878518]

@@ -9,10 +9,11 @@ func _on_continue_button_pressed() -> void:
 	get_tree().change_scene_to_file(scene)
 
 func _on_quit_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
 
 func _ready() -> void:
 	sprite_2d.texture = Global.bg_mini_game
 	rich_text_label.text = Global.text_game_over
 	Global.score_360_core_shield = 0
 	Global.score_github_breaker = 0
+	Global.score_bug_hunter = 0

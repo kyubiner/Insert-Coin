@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cvqeff0qhpkie"]
+
+[ext_resource type="Script" uid="uid://y5hr2b636lk1" path="res://Script/Bug_Hunter/virus.gd" id="1_5766v"]
+[ext_resource type="Texture2D" uid="uid://7ojl85pwbpgb" path="res://Asset/Bug_Hunter/virus_corrupt.png" id="1_x60au"]
+[ext_resource type="Texture2D" uid="uid://sqyqyy812bcf" path="res://Asset/Bug_Hunter/golden_virus.png" id="2_5766v"]
+[ext_resource type="Texture2D" uid="uid://bfjbket0yi0e8" path="res://Asset/Bug_Hunter/virus_healty.png" id="3_ntk5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20g4p"]
+atlas = ExtResource("1_x60au")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhacr"]
+atlas = ExtResource("1_x60au")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8qff"]
+atlas = ExtResource("1_x60au")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4svbd"]
+atlas = ExtResource("1_x60au")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oysf6"]
+atlas = ExtResource("2_5766v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y485v"]
+atlas = ExtResource("2_5766v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5k0j"]
+atlas = ExtResource("2_5766v")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7lwg"]
+atlas = ExtResource("2_5766v")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqdba"]
+atlas = ExtResource("3_ntk5q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jmn4"]
+atlas = ExtResource("3_ntk5q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq471"]
+atlas = ExtResource("3_ntk5q")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh5sn"]
+atlas = ExtResource("3_ntk5q")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj0j7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20g4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhacr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8qff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4svbd")
+}],
+"loop": 1,
+"name": &"corrupt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oysf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y485v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5k0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7lwg")
+}],
+"loop": 1,
+"name": &"golden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqdba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jmn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq471")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh5sn")
+}],
+"loop": 1,
+"name": &"healty",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14cdr"]
+size = Vector2(16.000002, 14.400002)
+
+[node name="Virus" type="CharacterBody2D" unique_id=267925391]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_5766v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1546377782]
+sprite_frames = SubResource("SpriteFrames_yj0j7")
+animation = &"corrupt"
+frame = 3
+frame_progress = 0.35328582
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126231097]
+position = Vector2(-2.8610222e-07, 2.8610222e-07)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_14cdr")

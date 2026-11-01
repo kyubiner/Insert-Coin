@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dtiuswxub6f0v"]
+
+[ext_resource type="Script" uid="uid://divoc7pbp802t" path="res://Script/Bug_Hunter/main.gd" id="1_swqa7"]
+[ext_resource type="Texture2D" uid="uid://dus5q1xiwpxk6" path="res://Asset/Bug_Hunter/background.png" id="1_v8ght"]
+[ext_resource type="FontFile" uid="uid://id8848hh0ii8" path="res://Asset/Font/PixelatedEleganceRegular-ovyAA.ttf" id="2_swqa7"]
+[ext_resource type="Script" uid="uid://dibtnkdbjk0q" path="res://character_body_2d.gd" id="3_af7ne"]
+[ext_resource type="Texture2D" uid="uid://ce807or78ux4p" path="res://Asset/Bug_Hunter/Cursor.png" id="4_yj0j7"]
+[ext_resource type="Script" uid="uid://x3e68kd0eif5" path="res://Script/Bug_Hunter/spawner.gd" id="6_af7ne"]
+[ext_resource type="PackedScene" uid="uid://cvqeff0qhpkie" path="res://Scene/Bug_Hunter/virus.tscn" id="7_yj0j7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htemk"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vem5n"]
+atlas = ExtResource("4_yj0j7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apm74"]
+atlas = ExtResource("4_yj0j7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqu6i"]
+atlas = ExtResource("4_yj0j7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s850k"]
+atlas = ExtResource("4_yj0j7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh0rg"]
+atlas = ExtResource("4_yj0j7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htemk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vem5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apm74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqu6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s850k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh0rg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(16, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_af7ne"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 768, 2, 0, 0, 0, 0, 770, 433, 0, 0, 0, 0, -1, 431, 0, 0, 0, 0, 1, 3)
+}
+point_count = 5
+
+[node name="Node2D" type="Node2D" unique_id=1646630243]
+script = ExtResource("1_swqa7")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=268604528]
+clip_children = 1
+offset_right = 768.0
+offset_bottom = 432.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_htemk")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=142752121]
+layout_mode = 2
+texture = ExtResource("1_v8ght")
+
+[node name="Label" type="Label" parent="." unique_id=709968313]
+z_index = 10
+offset_left = 349.0
+offset_top = 186.0
+offset_right = 416.0
+offset_bottom = 254.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_swqa7")
+theme_override_font_sizes/font_size = 32
+text = "120"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1801593670 groups=["player"]]
+position = Vector2(380, 220)
+scale = Vector2(3, 3)
+script = ExtResource("3_af7ne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1003477373]
+sprite_frames = SubResource("SpriteFrames_htemk")
+autoplay = "default"
+frame_progress = 0.77476984
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=615402925]
+shape = SubResource("RectangleShape2D_htemk")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=225270962]
+script = ExtResource("6_af7ne")
+virus_scene = ExtResource("7_yj0j7")
+
+[node name="VirusTimer" type="Timer" parent="." unique_id=634595115]
+wait_time = 3.0
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1472056158]
+curve = SubResource("Curve2D_af7ne")
+
+[node name="PathVirus2D" type="PathFollow2D" parent="Path2D" unique_id=1810876552]
+position = Vector2(3, 1)
+rotation = 0.0013071889
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=495964697]
+
+[node name="CorruptionOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1736825955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=565935062]
+wait_time = 300.0
+autostart = true
+
+[connection signal="timeout" from="VirusTimer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

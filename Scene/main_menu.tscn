@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dt11otdyt1wj1" path="res://Asset/360 Core Shield/logo.png" id="1_87ipw"]
 [ext_resource type="Script" uid="uid://ce1ckoy5rfvkg" path="res://Script/main_menu.gd" id="1_hii65"]
 [ext_resource type="Texture2D" uid="uid://cu4uny4qufnkc" path="res://Asset/Github_Breaker/logo.png" id="2_hii65"]
+[ext_resource type="Texture2D" uid="uid://bnpn2sjmfdqp1" path="res://Asset/Commit_Rush/logo.png" id="2_pvidh"]
+[ext_resource type="Texture2D" uid="uid://to87u4kvx5de" path="res://Asset/Bug_Hunter/logo.png" id="3_hptlk"]
 
 [node name="Control" type="Control" unique_id=664825225]
 layout_mode = 3
@@ -13,23 +15,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hii65")
 
-[node name="TextureButton2" type="TextureButton" parent="." unique_id=1608914730]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2117989327]
 layout_mode = 0
-offset_left = 396.0
-offset_top = 132.0
-offset_right = 908.0
-offset_bottom = 644.0
-scale = Vector2(0.25, 0.25)
+offset_top = 137.0
+offset_right = 2560.0
+offset_bottom = 1120.3334
+scale = Vector2(0.3, 0.3)
+alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer" unique_id=1356494188]
+layout_mode = 2
+texture_normal = ExtResource("2_pvidh")
+
+[node name="Control2" type="Control" parent="HBoxContainer" unique_id=965512140]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer" unique_id=812271091]
+layout_mode = 2
+texture_normal = ExtResource("3_hptlk")
+
+[node name="Control3" type="Control" parent="HBoxContainer" unique_id=201331656]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer" unique_id=1608914730]
+layout_mode = 2
 texture_normal = ExtResource("1_87ipw")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1717402666]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 132.0
-offset_right = 728.0
-offset_bottom = 644.0
-scale = Vector2(0.25, 0.25)
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1907922982]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer" unique_id=1717402666]
+layout_mode = 2
 texture_normal = ExtResource("2_hii65")
 
-[connection signal="pressed" from="TextureButton2" to="." method="_on_core_shield_pressed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_github_breaker_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="_on_commit_rush_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton4" to="." method="_on_bug_hunter_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_core_shield_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_github_breaker_pressed"]

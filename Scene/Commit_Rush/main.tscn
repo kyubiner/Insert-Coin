@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://0bve8nv7kwb1"]
+
+[ext_resource type="Texture2D" uid="uid://d2mm6866jrpss" path="res://Asset/Commit_Rush/background.png" id="1_4iixh"]
+[ext_resource type="Script" uid="uid://by6bt61qt8acb" path="res://Script/Commit_Rush/main.gd" id="1_42c8x"]
+[ext_resource type="Texture2D" uid="uid://ca03tu600mn4c" path="res://Asset/Commit_Rush/ship.png" id="2_42c8x"]
+[ext_resource type="FontFile" uid="uid://id8848hh0ii8" path="res://Asset/Font/PixelatedEleganceRegular-ovyAA.ttf" id="3_gjete"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htemk"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmwei"]
+atlas = ExtResource("2_42c8x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24tys"]
+atlas = ExtResource("2_42c8x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkmeo"]
+atlas = ExtResource("2_42c8x")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htemk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmwei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24tys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkmeo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42c8x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjete"]
+
+[node name="Node2D" type="Node2D" unique_id=1928003602]
+script = ExtResource("1_42c8x")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2130641889]
+clip_children = 1
+offset_right = 768.0
+offset_bottom = 432.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_htemk")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1888807238]
+layout_mode = 2
+texture = ExtResource("1_4iixh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=48620637]
+position = Vector2(689, 115.00001)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_htemk")
+autoplay = "default"
+frame_progress = 0.117050424
+
+[node name="Label" type="Label" parent="." unique_id=570035650]
+offset_left = 638.0
+offset_top = 166.0
+offset_right = 740.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("3_gjete")
+text = "RBR-36"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2134754488]
+offset_left = 51.0
+offset_top = 49.0
+offset_right = 637.0
+offset_bottom = 285.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 10)
+theme_override_colors/default_color = Color(0.15686275, 0.8901961, 0.015686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("3_gjete")
+bbcode_enabled = true
+text = "[color=green][wave amp=20.0 freq=3.0]
+  _  _  _ _____ _  _ _  YX   4036-AFE
+ | || || |_   _| \\| | | | \\ / /
+ | || || | | | | .` | |_| |\\ V / 
+  \\_/\\_/   |_| |_|\\_|\\___/  \\_/  
+[/wave][/color]
+[color=gray]====================================================[/color]
+[color=cyan]OS:[/color] Winux Kernel v4.036-Afe x86_64
+[color=cyan]Uptime:[/color] 00:42:19 [color=yellow](STABLE)[/color]
+[color=cyan]Memory:[/color] 4096MB / 16384MB
+[color=cyan]Security Status:[/color] [color=green]ENCRYPTED[/color]
+[color=gray]====================================================[/color]"
+
+[node name="QTETimer" type="Timer" parent="." unique_id=124183127]
+wait_time = 3.0
+
+[node name="LabelQTE" type="Label" parent="." unique_id=403020160]
+offset_left = 50.0
+offset_top = 304.0
+offset_right = 636.0
+offset_bottom = 372.0
+theme_override_fonts/font = ExtResource("3_gjete")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QTEProgressBar" type="ProgressBar" parent="." unique_id=1089038081]
+offset_left = 56.0
+offset_top = 239.0
+offset_right = 425.0
+offset_bottom = 255.0
+theme_override_styles/background = SubResource("StyleBoxFlat_42c8x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gjete")
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="." unique_id=2050045364]
+offset_left = 50.0
+offset_top = 273.0
+offset_right = 636.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("3_gjete")
+theme_override_font_sizes/font_size = 32
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
